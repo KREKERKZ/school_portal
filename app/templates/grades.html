@@ -1,0 +1,17 @@
+<!-- templates/grades.html -->
+{% extends 'base.html' %}
+
+{% block title %}Grades - School Portal{% endblock %}
+
+{% block content %}
+    <h2>Your Grades</h2>
+    {% if grades %}
+        <ul>
+            {% for grade in grades %}
+                <li>{{ grade.subject }}: {{ grade.grade }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No grades available.</p>
+    {% endif %}
+{% endblock %}
