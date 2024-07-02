@@ -1,14 +1,17 @@
-# config/settings.py
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'your_secret_key_here'
-# Важно использовать секретный ключ для продакшн
-
-DEBUG = True  # В реальном проекте следует установить значение в False
-
+# Значения по умолчанию
+SECRET_KEY = 'default_secret_key'
+DEBUG = False
 ALLOWED_HOSTS = []
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 # Подключение приложений
 INSTALLED_APPS = [
@@ -49,19 +52,18 @@ TEMPLATES = [
     },
 ]
 
-# Настройки базы данных (используем SQLite для простоты)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+
+# Настройки для использования дефолтного модуля аутентификации
+LOGIN_REDIRECT_URL = '/'  # URL для перенаправления после успешного входа
+LOGOUT_REDIRECT_URL = '/'  # URL для перенаправления после успешного выхода
 
 # Настройки статических файлов
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static'),
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # URL-адрес корневого приложения
 ROOT_URLCONF = 'config.urls'
@@ -89,6 +91,16 @@ ADMIN_URL = 'admin/'
 
 # Загрузка локальных настроек, если они есть
 try:
-    from .local_settings import *
+    from .local_settings import (
+        LOCAL_SECRET_KEY,
+        LOCAL_DEBUG,
+        LOCAL_ALLOWED_HOSTS,
+        LOCAL_DATABASES,
+    )
+    # Обновление значений по умолчанию
+    SECRET_KEY = LOCAL_SECRET_KEY
+    DEBUG = LOCAL_DEBUG
+    ALLOWED_HOSTS = LOCAL_ALLOWED_HOSTS
+    DATABASES = LOCAL_DATABASES
 except ImportError:
     pass
