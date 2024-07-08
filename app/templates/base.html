@@ -1,10 +1,11 @@
-<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}School Portal{% endblock %}</title>
-    <!-- Здесь можно подключить ваши стили CSS -->
+    {% load static %}
+    <!-- Подключение стилей CSS -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
@@ -12,9 +13,11 @@
         <nav>
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'grades' %}">Grades</a></li>
-                <!-- Добавьте другие ссылки на страницы в зависимости от вашего проекта -->
+                <li><a href="{% url 'view_grades' %}">Grades</a></li>
+                <li><a href="{% url 'view_schedule' %}">Schedule</a></li>
+                <li><a href="{% url 'view_news' %}">News</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'view_profile' %}">Profile</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
@@ -31,10 +34,10 @@
     </div>
     
     <footer>
-        <!-- Подвал сайта -->
+        <p>&copy; 2024 School Portal</p>
     </footer>
     
-    <!-- Здесь можно подключить скрипты JavaScript -->
+    <!-- Подключение скриптов JavaScript -->
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

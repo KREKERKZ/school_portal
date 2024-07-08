@@ -1,0 +1,24 @@
+<!-- templates/registration/register.html -->
+{% extends 'base.html' %}
+
+{% block title %}Register - School Portal{% endblock %}
+
+{% block content %}
+    <h2>Register</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+            <label for="{{ form.is_approved.id_for_label }}">Is Approved:</label>
+            {{ form.is_approved }}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
