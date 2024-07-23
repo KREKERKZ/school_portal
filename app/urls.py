@@ -13,4 +13,9 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('register/', register_view, name='register'),
+    path('edit_schedule/', views.edit_schedule, name='edit_schedule'),
+    path('edit_schedule/<int:schedule_id>/', views.edit_schedule,
+         name='edit_schedule'),
+    path('edit_grades/', views.edit_grades, name='edit_grades'),
+    path('edit_grades/<int:grade_id>/', views.edit_grades, name='edit_grades'),
 ]

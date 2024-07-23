@@ -6,5 +6,4 @@ urlpatterns = [
     path('schedule/', views.view_schedule, name='view_schedule_admin'),
     path('news/', views.view_news, name='view_news_admin'),
     path('profile/', views.view_profile, name='view_profile_admin'),
-    # Добавьте другие маршруты для администраторов, если есть
 ]

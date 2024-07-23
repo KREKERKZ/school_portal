@@ -6,5 +6,4 @@ urlpatterns = [
     path('schedule/', views.view_schedule, name='view_schedule_teacher'),
     path('news/', views.view_news, name='view_news_teacher'),
     path('profile/', views.view_profile, name='view_profile_teacher'),
-    # Добавьте другие маршруты для учителей, если есть
 ]

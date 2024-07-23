@@ -1,6 +1,8 @@
 # app/models.py
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
 
 
 class CustomUser(AbstractUser):
@@ -27,22 +29,23 @@ class CustomUser(AbstractUser):
     )
 
 
-class Grade(models.Model):
-    student = models.ForeignKey(CustomUser,
-                                on_delete=models.CASCADE,
-                                related_name='grades')
-    subject = models.CharField(max_length=100)
-    grade = models.DecimalField(max_digits=5, decimal_places=2)
-    date = models.DateField()
-
-
 class Schedule(models.Model):
-    teacher = models.ForeignKey(CustomUser,
-                                on_delete=models.CASCADE,
-                                related_name='schedules')
-    day = models.CharField(max_length=20)
-    time = models.TimeField()
-    class_name = models.CharField(max_length=100)
+    course = models.CharField(max_length=100)
+    day_of_week = models.CharField(max_length=50, default='Monday')
+    start_time = models.TimeField(default=timezone.now)
+    end_time = models.TimeField()
+    teacher = models.ForeignKey('CustomUser', on_delete=models.CASCADE,
+                                related_name='taught_classes')
+    students = models.ManyToManyField('CustomUser',
+                                      related_name='enrolled_classes')
+
+
+class Grade(models.Model):
+    student = models.ForeignKey('CustomUser', on_delete=models.CASCADE,
+                                related_name='grades')
+    course = models.ForeignKey('Schedule', on_delete=models.CASCADE,
+                               related_name='grades', default=1)
+    grade = models.FloatField()
 
 
 class News(models.Model):

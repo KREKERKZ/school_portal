@@ -2,12 +2,23 @@
 
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import CustomUser
+from .models import CustomUser, Schedule, Grade
 
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'user_type', 'is_approved')
+        fields = ('username', 'email', 'user_type')
 
-    is_approved = forms.BooleanField(label='Is Approved', required=False)
+
+class ScheduleForm(forms.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ['course', 'day_of_week', 'start_time', 'end_time',
+                  'teacher', 'students']
+
+
+class GradeForm(forms.ModelForm):
+    class Meta:
+        model = Grade
+        fields = ['student', 'course', 'grade']

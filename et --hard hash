@@ -1,0 +1,23 @@
+[33mcommit 5d372322778e155c70133557d89dccfc18b284c5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Теймур Байзуллин <pocketmonstre@gmail.com>
+Date:   Mon Jul 8 11:04:35 2024 +0500
+
+    Add registration, add approved
+
+[33mcommit c30be320311422a3b7f2f5ef85369d3c32e1080a[m
+Author: Теймур Байзуллин <pocketmonstre@gmail.com>
+Date:   Tue Jul 2 15:31:40 2024 +0500
+
+    Add tamplates, and a lot more
+
+[33mcommit 16c4c4adc89aed55259abe9f457ab2bd2bdd972f[m
+Author: Теймур Байзуллин <pocketmonstre@gmail.com>
+Date:   Tue Jun 25 01:10:01 2024 +0500
+
+    an attempt using django
+
+[33mcommit e34fdca355af87ecdab911e7099486754b02a89f[m
+Author: KREKERKZ <114065262+KREKERKZ@users.noreply.github.com>
+Date:   Tue Jun 25 00:22:08 2024 +0500
+
+    Initial commit

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Edit Schedule</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+
+  <h3>All Schedules</h3>
+  <ul>
+    {% for schedule in schedules %}
+      <li>{{ schedule }} <a href="{% url 'edit_schedule' schedule.id %}">Edit</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

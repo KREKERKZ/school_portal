@@ -10,9 +10,9 @@ def login_view(request):
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            if user.is_approved:
+            if hasattr(user, 'customuser') and user.customuser.is_approved:
                 login(request, user)
-                return redirect('home')
+                return redirect('index')
             else:
                 messages.error(request, 'Your account is awaiting approval.')
         else:

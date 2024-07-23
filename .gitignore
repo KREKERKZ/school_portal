@@ -1,0 +1,43 @@
+# Ignore the virtual environment
+venv/
+
+# Ignore configuration and database files
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore temporary editor files
+*.bak
+*.swp
+*.tmp
+
+# Ignore system files and directories
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and editor-specific files and directories
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore deployment and build-related files and directories
+__pycache__/
+staticfiles/
+media/
+
+# Ignore database migration files
+app/migrations/
+
+# Ignore Docker-related files
+docker-compose.override.yml
+.env.docker
+
+# Ignore additional files specific to your project
+# You can add any other files or directories here that you don't want to include in the repository
