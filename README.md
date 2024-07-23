@@ -58,6 +58,7 @@ School Portal is a Django-based web application designed to manage school-relate
 2. Register a new account or log in with an existing account.
 3. Navigate through the portal to manage grades, schedules, and news.
 
+```markdown
 ## Project Structure
 
 school_portal/
@@ -85,7 +86,7 @@ school_portal/
 ├── manage.py
 ├── requirements.txt
 └── .gitignore
-
+```
 
 ## Models
 
