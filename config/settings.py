@@ -74,6 +74,8 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+AUTH_USER_MODEL = 'app.CustomUser'
+
 # Настройки локализации и времени
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
